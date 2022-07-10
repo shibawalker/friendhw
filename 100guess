@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cstdlib> 
+#include <ctime> 
+using namespace std;
+
+int main(){
+    int min = 0;//亂數最小值
+    int max = 100;//亂數最大值
+    srand(5);
+    int target = rand() % (max - min + 1)+min;
+    int input = 0;//input為使用者輸入之數字
+    int times=1; //times為猜測次數
+    /*debug : cout<<target;*/
+    while (true) {
+        cout<<"請輸入1到100之間的數字:"<<endl;
+        cin>>input;
+        if (input == 999){
+            break;
+        }
+        else if (input == target){
+            cout << "你猜中了，共用了"<<times<<"次"<<endl;
+            break;
+        }
+        else{
+            cout << "你沒猜中，在試一次"<<endl;
+            times += 1;
+        }
+    }
+    return 0;
+}
